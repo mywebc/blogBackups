@@ -12,7 +12,7 @@ cd public
 # git remote add origin git@github.com:mywebc/mywebc.github.io.git
 git add .
 git commit -m "blog update"
-git pull
-git push
+git pull origin master
+git push origin master
 # 退出
 cd ../
