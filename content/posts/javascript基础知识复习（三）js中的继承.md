@@ -27,10 +27,12 @@ console,log(instance.getSuperValue);//true
 console.log(instance.getSubValue);//false
 ```
 以上代码我们可以看到定义两个构造函数，里面有属性，原型里面有方法，我们让SubType的原型等于SuperType的实例，通过替换了SubType的默认原型对象实现继承，我们可以看到SubType的实例成功调用SuperType里的方法，之后我们又为其手动添加了一个新的方法也是可以调用的。 
+
 注意：继承原型后使用字面量添加方法，会使继承无效，因为已经替换了原型，我们在上一篇中介绍原型时已经讲过。 
 缺点：（1）继承后的原型对应的构造函数它所有的实例都会共享原型中的方法。 （2）继承的子类和父类，子类是不能向父类传参数的。 
-<!--more-->
+
 **二、借用构造函数**
+
 ```javascript
 function SuperType (){
        this.colors=['red','blue'];
@@ -60,7 +62,9 @@ console.log(o.name)//lili
 console.log(o.age)//12
 ```
 我们可以看到子类传入参数后，调用父类函数直接赋值给属性name。为了确保父类的属性不会覆盖子类，在调用父类函数后再添加新属性。 缺点：方法都在构造函数中定义，无法函数复用，父类的原型中的方法对于子类也是不可见的。
+
  **三、组合继承（原型链和借用构造函数）**
+ 
 ```javascript
 function SuperType(){
    this.name=name;
@@ -87,7 +91,9 @@ alert(o1.name);//hi
 alert(o1.age);//21
 ```
 我们可以看到父类函数里有两个属性，原型里有一个方法，用原型链继承原型里的方法，这样他们的方法共享，借用构造函数的方法继承了父类函数里的属性，属性不共享，这样每个实例都有自己的属性，和使用相同的方法了。 组合继承避免了原型链和借用构造函数的缺陷，是JavaScript中最常用的继承模式。 
+
 **四、原型式继承** 
+
 《JavaScript语言精粹》作者克罗克福德提出了一个方式来实现继承
 ```javascript
 function object(o){
@@ -144,7 +150,9 @@ Object.create()存在兼容性问题，因此不推荐使用; 解决兼容性问
             }
         }
 ```
+
 **五、寄生式继承** 
+
 寄生式继承也是克罗克福德提出的
 ```javascript
 function createAnother(original){
@@ -163,7 +171,9 @@ var anotherPerson=createAnother(person);
 anotherPerson.sayHi();//hi
 ```
 寄生式继承的思路跟工厂模式差不多，封装一个函数，函数接受一个参数，参数就是将要作为新对象基础的对象，然后把这对象传给object函数，返回值给clone，再为clone对象添加一个方法，最后返回clone对象。我们可以看到person返回了一个新对象- anotherPerson，新对象不仅有person 的所有属性和方法，还有自己的sayHi方法 缺点：还是函数不能复用的问题; 
+
 **六、寄生组合式继承** 
+
 我们之前说过Js的继承用的最多的是第三种组合继承，但是他也有缺点，他会调用两次超类型构造函数（父类函数），第一次调用会创建实例属性name和colors，第二次调用又会如此，这样就覆盖了原来的属性，所以寄生组合式继承是对第一次调用函数的优化，只需创建一个超类型函数的副本即可，这样子类就只调用一次超类型构造函数。
 ```javascript
 function  inheritPrototype(subType,SuperType){
