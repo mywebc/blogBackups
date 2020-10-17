@@ -1,3 +1,4 @@
+# source deploy.sh 一键部署和备份博客
 # 删除public
 rm -rf public/
 # 生成public
@@ -7,7 +8,9 @@ git add .
 git commit -m "blog backup"
 git push
 # 推送静态文件到githubPage
-cd public
+cd ./public
 git add .
 git commit -m "blog update"
 git push
+# 退出
+cd ../
