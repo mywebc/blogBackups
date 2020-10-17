@@ -9,6 +9,7 @@ git commit -m "blog backup"
 git push origin
 # 推送静态文件到githubPage
 cd public
+pwd
 git add .
 git commit -m "blog update"
 git push origin
