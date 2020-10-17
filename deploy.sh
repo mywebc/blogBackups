@@ -13,7 +13,7 @@ git init
 git remote add origin git@github.com:mywebc/mywebc.github.io.git
 git add .
 git commit -m "blog update"
-git pull origin
-git push origin
+git pull origin master
+git push -f origin master
 # 退出
 cd ../
