@@ -6,11 +6,11 @@ hugo
 # 备份博客内容
 git add .
 git commit -m "blog backup"
-git push origin git@github.com:mywebc/blogBackups.git master
+git push origin
 # 推送静态文件到githubPage
 cd public
 git add .
 git commit -m "blog update"
-git push origin git@github.com:mywebc/mywebc.github.io.git master
+git push origin
 # 退出
 cd ../
