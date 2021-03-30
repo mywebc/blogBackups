@@ -1,3 +1,13 @@
+---
+title: About
+date: '2019-02-28'
+lastmod: '2021-03-29'
+menu:
+    main: 
+        weight: -20
+        pre: user
+---
+
 ## 关于本站
 * 2017年5月份，我购买了老薛主机的服务器和chenxiaolani域名，搭建了wordpress（我的第一个站点）；
 * 2018年6月份，在参加工作不久后，由于精力有限，加之服务器到期，我将博客迁移到了Hexo平台；
