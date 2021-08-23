@@ -9,13 +9,15 @@ hugo
 git add . -f
 git commit -m "add comment"
 git push origin
-# 推送静态文件到githubPage
+# 推送静态文件到githubPage https://github.com/mywebc/mywebc.github.io.git git@github.com:mywebc/mywebc.github.io.git
 cd public
-# git init
-# git remote add origin git@github.com:mywebc/mywebc.github.io.git
-git add . -f
+git init
+git remote add origin https://github.com/mywebc/mywebc.github.io.git
+git add . 
 git commit -m "add comment"
 git pull origin master
 git push origin master
 # 退出
 cd ../
+# 删除public
+rm -rf public
