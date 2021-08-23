@@ -6,14 +6,14 @@
 # 生成public(替换)
 hugo
 # 备份博客内容
-git add .
+git add . -f
 git commit -m "add comment"
 git push origin
 # 推送静态文件到githubPage
 cd public
 # git init
 # git remote add origin git@github.com:mywebc/mywebc.github.io.git
-git add .
+git add . -f
 git commit -m "add comment"
 git pull origin master
 git push origin master

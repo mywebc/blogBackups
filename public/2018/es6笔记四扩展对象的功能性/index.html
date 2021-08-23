@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="陈晓拉尼">
+  
+  
+  
+  <link rel="prev" href="https://chenxiaolani.com/2018/es6%E7%AC%94%E8%AE%B0%E4%B8%89%E5%87%BD%E6%95%B0/" />
+  <link rel="next" href="https://chenxiaolani.com/2018/vue%E4%B8%AD%E4%BD%BF%E7%94%A8elementui%E8%A1%A8%E6%A0%BC%E7%9A%84%E5%8D%95%E9%80%89%E5%85%A8%E9%80%89/" />
+  <link rel="canonical" href="https://chenxiaolani.com/2018/es6%E7%AC%94%E8%AE%B0%E5%9B%9B%E6%89%A9%E5%B1%95%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8A%9F%E8%83%BD%E6%80%A7/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           ES6笔记（四）扩展对象的功能性 | 陈晓拉尼
+       
+  </title>
+  <meta name="title" content="ES6笔记（四）扩展对象的功能性 | 陈晓拉尼">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chenxiaolani.com\/"
+    },
+    "articleSection" : "posts",
+    "name" : "ES6笔记（四）扩展对象的功能性",
+    "headline" : "ES6笔记（四）扩展对象的功能性",
+    "description" : "\u003ch3 id=\u0022对象的语法的扩展\u0022\u003e对象的语法的扩展\u003c\/h3\u003e\n\u003ch4 id=\u00221对象的属性或属性值可以直接传入变量\u0022\u003e(1)对象的属性或属性值可以直接传入变量\u003c\/h4\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\u0022\u003e\u003ccode class=\u0022language-ts\u0022 data-lang=\u0022ts\u0022\u003e\u003cspan style=\u0022color:#66d9ef\u0022\u003elet\u003c\/span\u003e \u003cspan style=\u0022color:#a6e22e\u0022\u003eid\u003c\/span\u003e \u003cspan style=\u0022color:#f92672\u0022\u003e=\u003c\/span\u003e \u003cspan style=\u0022color:#ae81ff\u0022\u003e12\u003c\/span\u003e; \u003cspan style=\u0022color:#66d9ef\u0022\u003elet\u003c\/span\u003e \u003cspan style=\u0022color:#a6e22e\u0022\u003evalue\u003c\/span\u003e \u003cspan style=\u0022color:#f92672\u0022\u003e=\u003c\/span\u003e \u003cspan style=\u0022color:#ae81ff\u0022\u003e22\u003c\/span\u003e; \u003cspan style=\u0022color:#66d9ef\u0022\u003elet\u003c\/span\u003e \u003cspan style=\u0022color:#a6e22e\u0022\u003eobj\u003c\/span\u003e \u003cspan style=\u0022color:#f92672\u0022\u003e=\u003c\/span\u003e {\u003cspan style=\u0022color:#a6e22e\u0022\u003eid\u003c\/span\u003e:\u003cspan style=\u0022color:#66d9ef\u0022\u003evalue\u003c\/span\u003e} \n\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003ch4 id=\u00222在对象中方法的简写\u0022\u003e(2)在对象中方法的简写\u003c\/h4\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\u0022\u003e\u003ccode class=\u0022language-ts\u0022 data-lang=\u0022ts\u0022\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e\/\/es5 \n\u003c\/span\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e\u003c\/span\u003e\u003cspan style=\u0022color:#66d9ef\u0022\u003elet\u003c\/span\u003e \u003cspan style=\u0022color:#a6e22e\u0022\u003eobj\u003c\/span\u003e \u003cspan style=\u0022color:#f92672\u0022\u003e=\u003c\/span\u003e { \n    \u003cspan style=\u0022color:#a6e22e\u0022\u003ehandle\u003c\/span\u003e:\u003cspan style=\u0022color:#66d9ef\u0022\u003efunction\u003c\/span\u003e(){ \n        \u003cspan style=\u0022color:#75715e\u0022\u003e\/\/dosomething \n\u003c\/span\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e\u003c\/span\u003e        } \n    } \n\u003cspan style=\u0022color:#75715e\u0022\u003e\/\/es6 \n\u003c\/span\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e\u003c\/span\u003e\u003cspan style=\u0022color:#66d9ef\u0022\u003elet\u003c\/span\u003e \u003cspan style=\u0022color:#a6e22e\u0022\u003eobj\u003c\/span\u003e \u003cspan style=\u0022color:#f92672\u0022\u003e=\u003c\/span\u003e {\n     \u003cspan style=\u0022color:#a6e22e\u0022\u003ehandle\u003c\/span\u003e(){ \n        \u003cspan style=\u0022color:#75715e\u0022\u003e\/\/dosomething \n\u003c\/span\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e\u003c\/span\u003e        } \n    } \n\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e",
+    "inLanguage" : "zh-Hans",
+    "author" : "陈晓拉尼",
+    "creator" : "陈晓拉尼",
+    "publisher": "陈晓拉尼",
+    "accountablePerson" : "陈晓拉尼",
+    "copyrightHolder" : "陈晓拉尼",
+    "copyrightYear" : "2018",
+    "datePublished": "2018-04-03 16:17:56 \u002b0000 UTC",
+    "dateModified" : "2018-04-03 16:17:56 \u002b0000 UTC",
+    "url" : "https:\/\/chenxiaolani.com\/2018\/es6%E7%AC%94%E8%AE%B0%E5%9B%9B%E6%89%A9%E5%B1%95%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8A%9F%E8%83%BD%E6%80%A7\/",
+    "wordCount" : "88",
+    "keywords" : [ "es6", "陈晓拉尼"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chenxiaolani.com/">陈晓拉尼</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/link/" title="">Link</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chenxiaolani.com/">陈晓拉尼</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/link/" title="">Link</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">ES6笔记（四）扩展对象的功能性</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chenxiaolani.com/" rel="author">陈晓拉尼</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2018-04-03 itemprop="datePublished">April 3, 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://chenxiaolani.com/categories/javascript/"> JavaScript </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="对象的语法的扩展">对象的语法的扩展</h3>
+<h4 id="1对象的属性或属性值可以直接传入变量">(1)对象的属性或属性值可以直接传入变量</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>; <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>; <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">id</span>:<span style="color:#66d9ef">value</span>} 
+</code></pre></div><h4 id="2在对象中方法的简写">(2)在对象中方法的简写</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">//es5 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> { 
+    <span style="color:#a6e22e">handle</span>:<span style="color:#66d9ef">function</span>(){ 
+        <span style="color:#75715e">//dosomething 
+</span><span style="color:#75715e"></span>        } 
+    } 
+<span style="color:#75715e">//es6 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+     <span style="color:#a6e22e">handle</span>(){ 
+        <span style="color:#75715e">//dosomething 
+</span><span style="color:#75715e"></span>        } 
+    } 
+</code></pre></div><h4 id="3属性初始值简写">(3)属性初始值简写</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">//ES5 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">a</span>(<span style="color:#a6e22e">id</span>) {
+        <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">id</span> }; 
+     }; 
+     <span style="color:#75715e">//ES6
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">id</span>) <span style="color:#f92672">=&gt;</span> ({ <span style="color:#a6e22e">id</span> }) 
+</code></pre></div><h3 id="es6对象新增的方法">es6对象新增的方法</h3>
+<h4 id="1objectis">(1)Object.is()</h4>
+<p>比较两种数据类型，以前可以用===或者==，现在可以用Object.is()，不过Object.is()比较严格：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#f92672">+</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">===</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">0</span>)
+<span style="color:#75715e">//true 
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(Object.<span style="color:#66d9ef">is</span>(<span style="color:#f92672">+</span><span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0</span>))
+<span style="color:#75715e">//false
+</span></code></pre></div><h4 id="2objectassign">(2)Object.assign()</h4>
+<p>Object.assign()这个方法早有接触过，合并对象以及浅拷贝,具体看如下示例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"> <span style="color:#66d9ef">object</span>.<span style="color:#a6e22e">assign</span>(<span style="color:#a6e22e">target</span>,...<span style="color:#a6e22e">obj</span>) 
+</code></pre></div><p>注意一下，obj中会覆盖target中重复的属性</p>
+<h3 id="对象被遍历自动枚举">对象被遍历自动枚举</h3>
+<p>示例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">1</span>, <span style="color:#a6e22e">5</span>: <span style="color:#66d9ef">5</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eryue&#34;</span>, <span style="color:#a6e22e">3</span>: <span style="color:#66d9ef">3</span> } 
+Object.<span style="color:#a6e22e">assign</span>(<span style="color:#a6e22e">state</span>, <span style="color:#66d9ef">null</span>) 
+<span style="color:#75715e">//{&#34;3&#34;:3,&#34;5&#34;:5,&#34;id&#34;:1,&#34;name&#34;:&#34;eryue&#34;} 
+</span></code></pre></div><p>还有其他的object.keys()和for&hellip;in都会枚举。</p>
+<h3 id="对象原型的增强">对象原型的增强</h3>
+<p>Object.setPrototypeOf()还有super()。</p>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>陈晓拉尼 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chenxiaolani.com/2018/es6%E7%AC%94%E8%AE%B0%E5%9B%9B%E6%89%A9%E5%B1%95%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8A%9F%E8%83%BD%E6%80%A7/>https://chenxiaolani.com/2018/es6%E7%AC%94%E8%AE%B0%E5%9B%9B%E6%89%A9%E5%B1%95%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8A%9F%E8%83%BD%E6%80%A7/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://chenxiaolani.com/tags/es6/">
+                    #es6</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chenxiaolani.com/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chenxiaolani.com/2018/es6%E7%AC%94%E8%AE%B0%E4%B8%89%E5%87%BD%E6%95%B0/" class="prev" rel="prev" title="ES6笔记（三）函数"><i class="iconfont icon-left"></i>&nbsp;ES6笔记（三）函数</a>
+         
+        
+        <a href="https://chenxiaolani.com/2018/vue%E4%B8%AD%E4%BD%BF%E7%94%A8elementui%E8%A1%A8%E6%A0%BC%E7%9A%84%E5%8D%95%E9%80%89%E5%85%A8%E9%80%89/" class="next" rel="next" title="vue中使用elementUI，表格的单选全选">vue中使用elementUI，表格的单选全选&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+                   
+                
+                <div id="vcomments"></div>
+                <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+                <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+                <script type="text/javascript">
+                    new Valine({
+                        el: '#vcomments' ,
+                        appId: 'qfPQXrGmUdlb6KGc2Mqxrz8A-gzGzoHsz',
+                        appKey: 'QWvQACehFdL6eAYt5IRJmlbB',
+                        notify:  false ,
+                        verify:  false ,
+                        avatar:'mp',
+                        placeholder: '说点什么吧...',
+                        visitor:  false 
+                    });
+                </script>
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chenxiaolani.com/">陈晓拉尼</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
