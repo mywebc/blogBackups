@@ -73,11 +73,11 @@ preserveTaxonomyNames = true
   # more info please open https://valine.js.org
   [params.valine]
     enable = true #开关
-    appId = '82GG6nXa3qWLssQbz7FlW8si-gzGzoHsz'
-    appKey = 'LerWAhRBn4yg3fJGNfxp4t7J'
+    appId = 'qfPQXrGmUdlb6KGc2Mqxrz8A-gzGzoHsz'
+    appKey = 'QWvQACehFdL6eAYt5IRJmlbB'
     notify = false  # mail notifier , https://github.com/xCss/Valine/wiki
     verify = false # Verification code
     avatar = 'mp' #神秘人(一个灰白头像) 
     placeholder = '说点什么吧...' #在评论框显示的温馨提示等
-    visitor = true #访问量统计
+    visitor = false #访问量统计
 
