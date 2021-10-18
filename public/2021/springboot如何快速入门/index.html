@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="陈晓拉尼">
+  
+  
+  
+  <link rel="prev" href="https://chenxiaolani.com/2020/%E4%BD%BF%E7%94%A8rollup%E6%89%93%E5%8C%85vue%E6%88%96react%E7%BB%84%E4%BB%B6%E5%BA%93%E5%B9%B6%E5%8F%91%E5%B8%83%E5%88%B0npm/" />
+  
+  <link rel="canonical" href="https://chenxiaolani.com/2021/springboot%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           springboot如何快速入门 | 陈晓拉尼
+       
+  </title>
+  <meta name="title" content="springboot如何快速入门 | 陈晓拉尼">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chenxiaolani.com\/"
+    },
+    "articleSection" : "posts",
+    "name" : "springboot如何快速入门",
+    "headline" : "springboot如何快速入门",
+    "description" : "前一段时间一直在看Java，一直没有总结，今天总结下spring boot如何快速入门。\n 前置条件 学习Java，环境当然要装，以下几个直接无脑装。\n jdk - java开发环境能够编译运行java maven - java中的包管理类似于npm mysql - 数据库本地安装或者使用Docker安装 idea - 开发工具没得说  项目新建 项目新建有两种方式, 官网的生成器 和 idea自带的Spring Initializar\n官网的Spring Initializar 进去后，java版本改为8（稳定），web开发需要加一个依赖spring web,其他一切默认就好，然后直接点击GERERATE下载就好，idea直接打开; idea的Spring Initializar 使用idea自带的Spring Initializar也是很方便的\n 先创建一个project，选择Spring Initializar;  同样版本选为8，next;  加个spring web的依赖，一路next到底结束;  很顺利的最后的目录结构应该是这样   项目运行  springboot是一个开箱即用的框架，目前为止我们新建的项目已经可以运行了，我们可以写个接口测试以下; 首先在com.example.demo下新建controller包，不要问为什么，问回答这就是约定; 在controller下新建一个DemoController的类，类的内容如下：  @Controller public class DemoController { @GetMapping(\u0026#34;\/test\u0026#34;) @ResponseBody public String testDemo() { return \u0026#34;这是第一个接口\u0026#34;; } } 首先看到@第一反应是不是很像装饰器，其实是两码事，你可以认为这个注解只是springboot跟你的一个约定，一个标记而已，而装饰器则会直接改变行为。\n @Controller: 定义类为控制类，一般接口就由控制类来转发; @GetMapping： 顾名思义该接口由get请求，举一反三还有个@PostMapping; @ResponseBody: 定义方法返回json的数据格式;  springboot的注解还有很多，在此就不一一例举了，等到用到什么再去查就好了;",
+    "inLanguage" : "zh-Hans",
+    "author" : "陈晓拉尼",
+    "creator" : "陈晓拉尼",
+    "publisher": "陈晓拉尼",
+    "accountablePerson" : "陈晓拉尼",
+    "copyrightHolder" : "陈晓拉尼",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-10-17 21:22:27 \u002b0800 CST",
+    "dateModified" : "2021-10-17 21:22:27 \u002b0800 CST",
+    "url" : "https:\/\/chenxiaolani.com\/2021\/springboot%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8\/",
+    "wordCount" : "64",
+    "keywords" : [ "java", "陈晓拉尼"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chenxiaolani.com/">陈晓拉尼</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/link/" title="">Link</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chenxiaolani.com/">陈晓拉尼</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/link/" title="">Link</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">springboot如何快速入门</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chenxiaolani.com/" rel="author">陈晓拉尼</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2021-10-17 itemprop="datePublished">October 17, 2021</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <blockquote>
+<p>前一段时间一直在看Java，一直没有总结，今天总结下spring boot如何快速入门。</p>
+</blockquote>
+<h3 id="前置条件">前置条件</h3>
+<p>学习Java，环境当然要装，以下几个直接无脑装。</p>
+<ol>
+<li>jdk - java开发环境能够编译运行java</li>
+<li>maven - java中的包管理类似于npm</li>
+<li>mysql - 数据库本地安装或者使用Docker安装</li>
+<li>idea - 开发工具没得说</li>
+</ol>
+<h3 id="项目新建">项目新建</h3>
+<p>项目新建有两种方式, <a href="https://start.spring.io/">官网的生成器</a> 和 idea自带的Spring Initializar</p>
+<h4 id="官网的spring-initializar">官网的Spring Initializar</h4>
+<p>进去后，java版本改为8（稳定），web开发需要加一个依赖spring web,其他一切默认就好，然后直接点击GERERATE下载就好，idea直接打开;
+<img src="/images/posts/springInit.png" alt="avatar"></p>
+<h4 id="idea的spring-initializar">idea的Spring Initializar</h4>
+<p>使用idea自带的Spring Initializar也是很方便的</p>
+<ol>
+<li>先创建一个project，选择Spring Initializar;
+<img src="/images/posts/springInitIdea.png" alt="avatar"></li>
+<li>同样版本选为8，next;
+<img src="/images/posts/springInitIdea2.png" alt="avatar"></li>
+<li>加个spring web的依赖，一路next到底结束;
+<img src="/images/posts/springInitIdea3.png" alt="avatar"></li>
+<li>很顺利的最后的目录结构应该是这样
+<img src="/images/posts/springInitProject.png" alt="avatar"></li>
+</ol>
+<h3 id="项目运行">项目运行</h3>
+<ul>
+<li>springboot是一个开箱即用的框架，目前为止我们新建的项目已经可以运行了，我们可以写个接口测试以下;</li>
+<li>首先在com.example.demo下新建controller包，不要问为什么，问回答这就是约定;</li>
+<li>在controller下新建一个DemoController的类，类的内容如下：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Controller</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DemoController</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/test&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@ResponseBody</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">testDemo</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;这是第一个接口&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>首先看到@第一反应是不是很像装饰器，其实是两码事，你可以认为这个注解只是springboot跟你的一个约定，一个标记而已，而装饰器则会直接改变行为。</p>
+<ol>
+<li>@Controller: 定义类为控制类，一般接口就由控制类来转发;</li>
+<li>@GetMapping： 顾名思义该接口由get请求，举一反三还有个@PostMapping;</li>
+<li>@ResponseBody: 定义方法返回json的数据格式;</li>
+</ol>
+<p>springboot的注解还有很多，在此就不一一例举了，等到用到什么再去查就好了;</p>
+<ul>
+<li>完成以上工作直接运行DemoApplication类就好了，然后浏览器直接访问localhost:8080/test，就能看到我们这个接口返回的字符串了;
+<img src="/images/posts/springbootInitTest.png" alt="avatar"></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>陈晓拉尼 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chenxiaolani.com/2021/springboot%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/>https://chenxiaolani.com/2021/springboot%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://chenxiaolani.com/tags/java/">
+                    #java</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chenxiaolani.com/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chenxiaolani.com/2020/%E4%BD%BF%E7%94%A8rollup%E6%89%93%E5%8C%85vue%E6%88%96react%E7%BB%84%E4%BB%B6%E5%BA%93%E5%B9%B6%E5%8F%91%E5%B8%83%E5%88%B0npm/" class="prev" rel="prev" title="使用Rollup打包Vue或React组件库并发布到npm"><i class="iconfont icon-left"></i>&nbsp;使用Rollup打包Vue或React组件库并发布到npm</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+                   
+                
+                <div id="vcomments"></div>
+                <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+                <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+                <script type="text/javascript">
+                    new Valine({
+                        el: '#vcomments' ,
+                        appId: 'qfPQXrGmUdlb6KGc2Mqxrz8A-gzGzoHsz',
+                        appKey: 'QWvQACehFdL6eAYt5IRJmlbB',
+                        notify:  false ,
+                        verify:  false ,
+                        avatar:'mp',
+                        placeholder: '说点什么吧...',
+                        visitor:  false 
+                    });
+                </script>
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chenxiaolani.com/">陈晓拉尼</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
