@@ -1,96 +1,64 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>工具 on 陈晓拉尼</title>
-    <link>https://chenxiaolani.com/categories/%E5%B7%A5%E5%85%B7/</link>
-    <description>Recent content in 工具 on 陈晓拉尼</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hans</language>
-    <lastBuildDate>Sun, 29 Nov 2020 23:39:46 +0800</lastBuildDate><atom:link href="https://chenxiaolani.com/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>使用Rollup打包Vue或React组件库并发布到npm</title>
-      <link>https://chenxiaolani.com/2020/%E4%BD%BF%E7%94%A8rollup%E6%89%93%E5%8C%85vue%E6%88%96react%E7%BB%84%E4%BB%B6%E5%BA%93%E5%B9%B6%E5%8F%91%E5%B8%83%E5%88%B0npm/</link>
-      <pubDate>Sun, 29 Nov 2020 23:39:46 +0800</pubDate>
-      
-      <guid>https://chenxiaolani.com/2020/%E4%BD%BF%E7%94%A8rollup%E6%89%93%E5%8C%85vue%E6%88%96react%E7%BB%84%E4%BB%B6%E5%BA%93%E5%B9%B6%E5%8F%91%E5%B8%83%E5%88%B0npm/</guid>
-      <description>最近在写一些Vue和React相关的组件库，涉及到打包文件发布npm这一块，在对比了webpack和rollup两种打包工具之后，决定使用rollup来打包，在此总结一下，希望可以给其他人参考。如果嫌我啰嗦，可以直接看代码，😊。
- Rollup Rollup 是一个 JavaScript 模块打包器，可以将小块代码编译成大块复杂的代码，常用于打包类库，其配置项也非常的简洁,跟webpack其实差不多，一个最基本的配置格式大体如下：
-export default { // 入口  input: &amp;#34;&amp;#34;, // 输出  output: [], // 排除项  external: [], // 全局模块  globals: {}, // 插件  plugins: [], } 与webpack区别 Rollup  简洁的API，易上手; 天生的Tree-shaking，自动删除冗余代码; 支持多模块导出; 能快速打出体积更小的bundle; 适合打包类、库；  webpack  丰富的插件系统; 代码分割和静态资源导入; 热模块更新; 适合项目级应用;  React react 打包配置如下，大家可以根据自己的项目稍微修改下即可。
-import resolve from &amp;#39;rollup-plugin-node-resolve&amp;#39;; import postcss from &amp;#39;rollup-plugin-postcss&amp;#39;; import commonjs from &amp;#39;rollup-plugin-commonjs&amp;#39;; import babel from &amp;#39;rollup-plugin-babel&amp;#39;; import typescript from &amp;#39;@rollup/plugin-typescript&amp;#39;; const extensions = [&amp;#39;.</description>
-    </item>
-    
-    <item>
-      <title>webpack配置app和pc多入口</title>
-      <link>https://chenxiaolani.com/2019/webpack%E9%85%8D%E7%BD%AEapp%E5%92%8Cpc%E5%A4%9A%E5%85%A5%E5%8F%A3/</link>
-      <pubDate>Sun, 08 Dec 2019 17:20:24 +0000</pubDate>
-      
-      <guid>https://chenxiaolani.com/2019/webpack%E9%85%8D%E7%BD%AEapp%E5%92%8Cpc%E5%A4%9A%E5%85%A5%E5%8F%A3/</guid>
-      <description>需求：原先做的app端又增加了pc端，现在把他们放在同一个项目下，就需要我们配置多入口了。
-  原先页面为index.html,后面增加pcJs.html  更改路径 在paths.js里
-{ // 增加pc的html  pcIndexJs: resolveModule(resolveApp, &amp;#39;src/pc/index&amp;#39;), } 增加entry 在webpack.config.js下
-entry: { index: [ isEnvDevelopment &amp;amp;&amp;amp; require.resolve(&amp;#34;react-dev-utils/webpackHotDevClient&amp;#34;), paths.appIndexJs ].filter(Boolean), pcJs: [ isEnvDevelopment &amp;amp;&amp;amp; require.resolve(&amp;#34;react-dev-utils/webpackHotDevClient&amp;#34;), paths.pcIndexJs ].filter(Boolean) }, 动态生成文件名 在webpack.config.js下
-output: { filename: isEnvProduction ? &amp;#34;static/js/[name].[contenthash:8].js&amp;#34; : isEnvDevelopment &amp;amp;&amp;amp; &amp;#34;static/js/[name].bundle.js&amp;#34;, // TODO: remove this when upgrading to webpack 5  futureEmitAssets: true, // There are also additional JS chunk files if you use code splitting.</description>
-    </item>
-    
-    <item>
-      <title>从头开始配置webpack4</title>
-      <link>https://chenxiaolani.com/2018/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AEwebpack4/</link>
-      <pubDate>Sun, 09 Sep 2018 23:25:12 +0000</pubDate>
-      
-      <guid>https://chenxiaolani.com/2018/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AEwebpack4/</guid>
-      <description>最近好像流行零配置，parcel的开箱即用的概念，也影响了webpack4,在 webapck4中也开始朝着这个方向发展，比如默认的入口为src,默认的打包输出为dist,新增了mode属性，有利于拆分生产环境和开发环境，默认为production，并且默认压缩js，还有一些其他的插件也不再适用，在此也没必要了解，最近就从头梳理了一下webpack4.
-  本片文章主要参考自董沅鑫的个人博客https://godbmw.com
- 环境 首先我们要全局安装webpack-cli和webpack,然后也要在项目中安装webpack和webpack-cli,这样我们才能使用。
-编译ES6 编译es6,我们需要以下loaders
- babel-loader babel转换器 babel-core babel转换时所调用的api(听名字就知道它是babel的核心) babel-preset-env 语法转换规则 babel-plugin-transform-runtime和Babel-runtime polyfill按需引入 babel-polyfill polyfill全局引入 注意：在babel7中所有前缀都变为@babel/,注意版本的统一  新建webpack.config.js:
-const path = require(&amp;#34;path&amp;#34;) // 使用babel编译ES6 module.exports = { entry: { app: &amp;#34;./index.js&amp;#34; // 以对象形式写推荐  }, output: { filename: &amp;#34;bundle.js&amp;#34;, // resolve解析为一个绝对路径  path: path.resolve(__dirname, &amp;#34;dist&amp;#34;) }, module: { rules: [ { test: /\.js$/, // 正则匹配以js结尾的文件  use: { loader: &amp;#34;babel-loader&amp;#34; // option: { // babel-loader的具体配置信息写在根目录下的.</description>
-    </item>
-    
-    <item>
-      <title>nginx常用命令总结</title>
-      <link>https://chenxiaolani.com/2018/nginx%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Wed, 24 Jan 2018 23:34:12 +0000</pubDate>
-      
-      <guid>https://chenxiaolani.com/2018/nginx%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</guid>
-      <description>查看nginx是否启动  ps -ef | grep nginx //用ps -ef列出进程列表，然后通过grep过滤。 ps -C nginx -o pid //直接查看进程id  nginx的启动，停止，与重载  nginx -s reload //修改配置文件后，可以重新热加载 nginx -s stop //快速停止，可能会丢失有关信息 nginx -s quit //有序停止 start nginx 或者 nginx开启nginx  </description>
-    </item>
-    
-    <item>
-      <title>关于Git的使用</title>
-      <link>https://chenxiaolani.com/2017/%E5%85%B3%E4%BA%8Egit%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
-      <pubDate>Sun, 20 Aug 2017 08:32:07 +0000</pubDate>
-      
-      <guid>https://chenxiaolani.com/2017/%E5%85%B3%E4%BA%8Egit%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
-      <description>从学习前端开始就听说过Git，无奈初期并不需要了解，但是在以后的学习或工作中这是必须会的一项技能，这几天也看了一些资料，整理一下
- 一、什么是Git？ Git是分布式版本控制系统，版本控制系统大致分为三类：
- 本地版本控制系统：顾名思义，只能在本地进行修订存储的系统，缺点是不能多人协同开发； 集中式版本控制系统：有一个中央服务器，文件的版本信息，修订及其存储都在这上面，但是太依赖网络，一旦网络瘫痪，数据容易丢失； 分布式版本控制系统：每个人本地都有一个版本控制系统，会有一个共享服务器，弥补了前面两种系统的缺陷，是现在使用是最多的版本控制系统，其中最有代表的就是Git。  二Git的安装 https://git-scm.com/downloads
-三、Git的使用原理 Git是使用命令行方式运行的； Git有三个工作区域：
- 工作目录：在这个区域你可以对你的项目进行开发修改； 暂存区域：开发或修改完成后可以将项目放在这里，之后一并提交； 仓库区域：这里会永久存储暂存区域上传的数据，这是Git最重要的部分，我们还原的数据时就是存储在这里的。  四、Git的使用
- 配置用户及其邮箱一边我们记录开发者的信息： 找打我们开发项目的根目录： 右击Git Bash here，进入命令行窗口模式： 输入：git config &amp;ndash;global user.name &amp;lsquo;你的名字&amp;rsquo;，git config &amp;ndash;global user.email &amp;lsquo;你的邮箱&amp;rsquo; 初始化仓库： git init,这时我们根文件夹会出现一个隐藏文件夹.git 接下来我们就可以在工作目录中开发项目了，这里我在index.html中修改了一些内容，可以使用命令git status查看文件状态 可以看到这些在工作区的内容是红色的 使用命令git add 文件名（或者-A表示所有），将文件放到暂存区域内，再来查看状态，我们发现文件变成了绿色 如果我们想把暂存区的文件再返回到工作区，可以使用git checkout 文件名 之后我们觉得所有文件都没问题后，就可以提交了git commit -m &amp;lsquo;备注信息&amp;rsquo;,并且可以git log 来查看提交历史 时光倒流：我们可以使用 git reset &amp;ndash;hard 字符串（每一次提交历史后面的字符串），就返回到那个状态。 Git的分支：当我们第一次提交时，就已经默认创建了一个主分支master ，当我们开发不止一个项目或功能时，不可能三七二一都提交到这个分支上吧，所以我们会创建对应的功能分支或项目分支，主分支我们一般会来发布稳定版本，我们会创建一个developer平行分支，在这上面针对不同的功能再创建feature分支，开发完成后都提交到developer这个分支上，所有功能开发完成后，我们还需要创建一个发行分支release供测试使用，最后才发布稳定版本到主分支上。   git branch lazaer //创建分支 git checkout lazaer //切换分支 git merge &amp;lsquo;分支名称&amp;rsquo; //合并分支 git branch -d lazaer //删除分支  五、共享仓库 第四点主要讲了在本地如何使用Git，为了协同开发，和其他人共享代码，我们需要建一个共享仓库 Git要求共享仓库是一个以.</description>
-    </item>
-    
-    <item>
-      <title>Fireworks 和Ps的常用操作</title>
-      <link>https://chenxiaolani.com/2017/fireworks-%E5%92%8Cps%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</link>
-      <pubDate>Mon, 24 Jul 2017 07:57:32 +0000</pubDate>
-      
-      <guid>https://chenxiaolani.com/2017/fireworks-%E5%92%8Cps%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</guid>
-      <description> Fireworks的常用快捷键： V：切换黑鼠标 U：画图 K：切片 I：吸色 Z：放大镜 空格：移动 shift：量尺寸 Photoshop的快捷键 z、alt：放大、缩小 空格：移动 u:矩形工具 ｉ：吸色 alt：切换辅助线 抠图：边框工具或者套索工具， Ctrl+c、Ctrl+v到新页面  </description>
-    </item>
-    
-    <item>
-      <title>简单的使用less和koala编译工具</title>
-      <link>https://chenxiaolani.com/2017/%E7%AE%80%E5%8D%95%E7%9A%84%E4%BD%BF%E7%94%A8less%E5%92%8Ckoala%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7/</link>
-      <pubDate>Thu, 20 Jul 2017 18:31:20 +0000</pubDate>
-      
-      <guid>https://chenxiaolani.com/2017/%E7%AE%80%E5%8D%95%E7%9A%84%E4%BD%BF%E7%94%A8less%E5%92%8Ckoala%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7/</guid>
-      <description> LESSCSS是一种动态样式语言，属于CSS预处理语言的一种，它使用类似CSS的语法，为CSS的赋予了动态语言的特性，如变量、继承、运算、函数等，更方便CSS的编写和维护。 LESSCSS可以在多种语言、环境中使用，包括浏览器端、桌面客户端、服务端。
-  在sublime中安装less插件（插件只是影响高亮效果）    ctrl+shift+p&amp;gt;install Package&amp;gt;less&amp;gt;回车即可自动安装，开始我会出现下面这种提示：there is no package available,这时候只要去https://packagecontrol.io/installation#st2,下载 Package Control.sublime-package并且放到Sublime text安装目录下的Packages里面，重启即可。 （2）第二种安装方法是去网上下载好插件，然后放到sublime的插件文件夹里再重启即可；
-  去官网下好koala后安装，设置里选择简体中文，然后测试koala工具； 在同一个文件夹下建立两个文件：index.css和index.less文件，然后拖到koala里 然后在sublime中打开文件，在查看中打开两个窗口，左边是less，右边是css，less写好后Ctrl+s就会自动编译成css文件，如图说明编译成功；
-  less的语法 http://www.1024i.com/demo/less/index.html
-  最近又看到node js 了，一般来说是这样编译的，先安装node.js,之后再全局安装less，那么lessc就是编译less文件的意思 再sublime中我们要装LESS、lessc、Less2Css三个插件，这样sublime会调用lessc去帮我们编译，在webstorm下一般他会智能提示你的。正常来讲，这种编译方式也是很少用得到的，如通less文件很多，我们不可能一边写，一边编译，所以我们可以引入一个less.js的文件，让js帮我们去解析即可（注意在引入less时，link的rel标签要改成stylesheet/less）。
-  </description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>工具 - Category - Asher&#39;s blog</title>
+        <link>http://example.org/categories/%E5%B7%A5%E5%85%B7/</link>
+        <description>工具 - Category - Asher&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2524729719@qq.com (陈晓拉尼-Asher)</managingEditor>
+            <webMaster>2524729719@qq.com (陈晓拉尼-Asher)</webMaster><lastBuildDate>Sun, 29 Nov 2020 23:39:46 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml" /><item>
+    <title>使用Rollup打包Vue或React组件库并发布到npm</title>
+    <link>http://example.org/%E4%BD%BF%E7%94%A8rollup%E6%89%93%E5%8C%85vue%E6%88%96react%E7%BB%84%E4%BB%B6%E5%BA%93%E5%B9%B6%E5%8F%91%E5%B8%83%E5%88%B0npm/</link>
+    <pubDate>Sun, 29 Nov 2020 23:39:46 &#43;0800</pubDate>
+    <author>陈晓拉尼-Asher</author>
+    <guid>http://example.org/%E4%BD%BF%E7%94%A8rollup%E6%89%93%E5%8C%85vue%E6%88%96react%E7%BB%84%E4%BB%B6%E5%BA%93%E5%B9%B6%E5%8F%91%E5%B8%83%E5%88%B0npm/</guid>
+    <description><![CDATA[最近在写一些Vue和React相关的组件库，涉及到打包文件发布npm这一块，在对比了webpack和rollup两种打包工具之后，决定使用r]]></description>
+</item>
+<item>
+    <title>webpack配置app和pc多入口</title>
+    <link>http://example.org/webpack%E9%85%8D%E7%BD%AEapp%E5%92%8Cpc%E5%A4%9A%E5%85%A5%E5%8F%A3/</link>
+    <pubDate>Sun, 08 Dec 2019 17:20:24 &#43;0000</pubDate>
+    <author>陈晓拉尼-Asher</author>
+    <guid>http://example.org/webpack%E9%85%8D%E7%BD%AEapp%E5%92%8Cpc%E5%A4%9A%E5%85%A5%E5%8F%A3/</guid>
+    <description><![CDATA[需求：原先做的app端又增加了pc端，现在把他们放在同一个项目下，就需要我们配置多入口了。 原先页面为index.html,后面增加pcJs.]]></description>
+</item>
+<item>
+    <title>从头开始配置webpack4</title>
+    <link>http://example.org/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AEwebpack4/</link>
+    <pubDate>Sun, 09 Sep 2018 23:25:12 &#43;0000</pubDate>
+    <author>陈晓拉尼-Asher</author>
+    <guid>http://example.org/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AEwebpack4/</guid>
+    <description><![CDATA[最近好像流行零配置，parcel的开箱即用的概念，也影响了webpack4,在 webapck4中也开始朝着这个方向发展，比如默认的入口为sr]]></description>
+</item>
+<item>
+    <title>nginx常用命令总结</title>
+    <link>http://example.org/nginx%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</link>
+    <pubDate>Wed, 24 Jan 2018 23:34:12 &#43;0000</pubDate>
+    <author>陈晓拉尼-Asher</author>
+    <guid>http://example.org/nginx%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</guid>
+    <description><![CDATA[查看nginx是否启动 ps -ef | grep nginx //用ps -ef列出进程列表，然后通过grep过滤。 ps -C nginx -o pid //直接查看进程id nginx的启动，停止，与]]></description>
+</item>
+<item>
+    <title>关于Git的使用</title>
+    <link>http://example.org/%E5%85%B3%E4%BA%8Egit%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+    <pubDate>Sun, 20 Aug 2017 08:32:07 &#43;0000</pubDate>
+    <author>陈晓拉尼-Asher</author>
+    <guid>http://example.org/%E5%85%B3%E4%BA%8Egit%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+    <description><![CDATA[从学习前端开始就听说过Git，无奈初期并不需要了解，但是在以后的学习或工作中这是必须会的一项技能，这几天也看了一些资料，整理一下 一、什么是G]]></description>
+</item>
+<item>
+    <title>Fireworks 和Ps的常用操作</title>
+    <link>http://example.org/fireworks-%E5%92%8Cps%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</link>
+    <pubDate>Mon, 24 Jul 2017 07:57:32 &#43;0000</pubDate>
+    <author>陈晓拉尼-Asher</author>
+    <guid>http://example.org/fireworks-%E5%92%8Cps%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</guid>
+    <description><![CDATA[Fireworks的常用快捷键： V：切换黑鼠标 U：画图 K：切片 I：吸色 Z：放大镜 空格：移动 shift：量尺寸 Photoshop的快捷键 z、a]]></description>
+</item>
+<item>
+    <title>简单的使用less和koala编译工具</title>
+    <link>http://example.org/%E7%AE%80%E5%8D%95%E7%9A%84%E4%BD%BF%E7%94%A8less%E5%92%8Ckoala%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7/</link>
+    <pubDate>Thu, 20 Jul 2017 18:31:20 &#43;0000</pubDate>
+    <author>陈晓拉尼-Asher</author>
+    <guid>http://example.org/%E7%AE%80%E5%8D%95%E7%9A%84%E4%BD%BF%E7%94%A8less%E5%92%8Ckoala%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7/</guid>
+    <description><![CDATA[LESSCSS是一种动态样式语言，属于CSS预处理语言的一种，它使用类似CSS的语法，为CSS的赋予了动态语言的特性，如变量、继承、运算、函]]></description>
+</item>
+</channel>
 </rss>
