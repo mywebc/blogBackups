@@ -1,0 +1,83 @@
+baseURL = "https://chenxiaolani.com/"
+languageCode = "zh-Hans"
+title = "陈晓拉尼"
+theme = "LoveIt"
+
+paginate = 20
+enableEmoji = true
+enableRobotsTXT = true
+googleAnalytics = ""
+
+preserveTaxonomyNames = true
+
+[blackfriday]
+  hrefTargetBlank = true
+  nofollowLinks = true
+  noreferrerLinks = true
+
+[Permalinks]
+ posts = "/:year/:filename/"
+
+[menu]
+  [[menu.main]]
+    name = "Blog"
+    url = "/posts/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Categories"
+    url = "/categories/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+
+  [[menu.main]]
+    name = "Link"
+    url = "/link/"
+    weight = 4
+
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 5
+
+[params]
+    since = 2017
+    author = "陈晓拉尼"                           # Author's name
+    avatar = "/images/me/boy.jpeg"           # Author's avatar
+    subtitle = "毛睿人生"         # Subtitle
+    cdn_url = ""           # Base CDN URL
+    home_mode = "" # post or other
+
+    google_verification = ""
+   
+    description = "" # site description
+    keywords = "" # site keywords
+
+    beian = ""
+    baiduAnalytics = ""
+
+    license= '本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可'
+
+[params.social]
+    GitHub = "mywebc"
+    Email   = "2524729719@qq.com"
+    Wechat = "/images/me/wechat.jpeg"  # Wechat QRcode image
+
+
+  # Valine.
+  # You can get your appid and appkey from https://leancloud.cn
+  # more info please open https://valine.js.org
+  [params.valine]
+    enable = true #开关
+    appId = 'qfPQXrGmUdlb6KGc2Mqxrz8A-gzGzoHsz'
+    appKey = 'QWvQACehFdL6eAYt5IRJmlbB'
+    notify = false  # mail notifier , https://github.com/xCss/Valine/wiki
+    verify = false # Verification code
+    avatar = 'mp' #神秘人(一个灰白头像) 
+    placeholder = '说点什么吧...' #在评论框显示的温馨提示等
+    visitor = false #访问量统计
+
