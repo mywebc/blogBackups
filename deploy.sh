@@ -15,6 +15,8 @@ git init
 git remote add origin https://github.com/mywebc/mywebc.github.io.git
 git add . 
 git commit -m "add comment"
+# 重新命名
+git branch -m master
 git pull origin master 
 # git push origin master
 git push -u origin master -f # 强制推送到远程
