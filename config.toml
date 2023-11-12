@@ -1,7 +1,7 @@
 baseURL = "https://chenxiaolani.com/"
 languageCode = "zh-Hans"
 title = "陈晓拉尼"
-theme = "LeaveIt"
+theme = "LoveIt"
 
 paginate = 20
 enableEmoji = true
