@@ -390,7 +390,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       Mix = false
     #  评论系统设置
     [params.page.comment]
-      enable = false
+      enable = true
       # Disqus 评论系统设置
       [params.page.comment.disqus]
         # 
@@ -460,11 +460,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # giscus comment 评论系统设置 (https://giscus.app/zh-CN)
       [params.page.comment.giscus]
         # 你可以参考官方文档来使用下列配置
-        enable = false
-        repo = ""
-        repoId = ""
+        enable = true
+        repo = "mywebc/blog-comments"
+        repoId = "R_kgDOKwsBjA"
         category = "Announcements"
-        categoryId = ""
+        categoryId = "DIC_kwDOKwsBjM4CbKFB"
         # 为空时自动适配当前主题 i18n 配置
         lang = ""
         mapping = "pathname"
