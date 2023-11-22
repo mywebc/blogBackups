@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TypeScript on Asher&#39;s blog</title>
+    <link>http://example.org/tags/typescript/</link>
+    <description>Recent content in TypeScript on Asher&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>2524729719@qq.com (陈晓拉尼-Asher)</managingEditor>
+    <webMaster>2524729719@qq.com (陈晓拉尼-Asher)</webMaster>
+    <lastBuildDate>Mon, 17 Sep 2018 23:25:48 +0000</lastBuildDate>
+    <atom:link href="http://example.org/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TypeScript入门</title>
+      <link>http://example.org/typescript%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Mon, 17 Sep 2018 23:25:48 +0000</pubDate><author>2524729719@qq.com (陈晓拉尼-Asher)</author>
+      <guid>http://example.org/typescript%E5%85%A5%E9%97%A8/</guid>
+      <description>TypeScript主要提供了类型系统和对ES6的支持,对于一个需要长期维护的项目，使用TypeScript可以减少维护成本。使用VSCod</description>
+    </item>
+  </channel>
+</rss>
