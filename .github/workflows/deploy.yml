@@ -1,33 +1,38 @@
-name: pages-auto-build-deploy
+name: Hugo Build & Deploy
+
 on:
-  # workflow_dispatch: 
   push:
-    branches:
-      - master
+    branches: [ master ]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: false
-          fetch-depth: 0
+    - name: Checkout
+      uses: actions/checkout@v2.3.4
+      with:
+        persist-credentials: false
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
-          extended: true
+    # Setup Hugo
+    - name: Hugo setup
+      uses: peaceiris/actions-hugo@v2.5.0
+      with:
+        hugo-version: 'latest'
+        # Download (if necessary) and use Hugo extended version. Example: true
+        extended: false
 
-      - name: Build Hugo
-        run: hugo
+    # Runs Hugo to build the Static Site
+    - name: Run Hugo
+      run: hugo --verbose
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
-          EXTERNAL_REPOSITORY: mywebc/mywebc.github.io
-          PUBLISH_BRANCH: master
-          publish_dir: ./public
-          commit_message: ${{ github.event.head_commit.message }}
+    # Deploy the Static Site to Public Repo (GitHub Pages)
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4.3.3
+      with:
+        token:  ${{ secrets.PERSONAL_TOKEN }}
+        repository-name: mywebc/mywebc.github.io
+        branch: master # The branch the action should deploy to.
+        folder: public # The folder the action should deploy.
+        single-commit: true
+        commit-message: "Deploy by source"
