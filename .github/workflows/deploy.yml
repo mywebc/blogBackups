@@ -1,38 +1,31 @@
-name: Hugo Build & Deploy
-
+name: Generate Site
 on:
   push:
-    branches: [ master ]
-
+    branches:
+      - master
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  build-deploy:
+    runs-on: ubuntu-18.04
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2.3.4
-      with:
-        persist-credentials: false
-
-    # Setup Hugo
-    - name: Hugo setup
-      uses: peaceiris/actions-hugo@v2.5.0
-      with:
-        hugo-version: 'latest'
-        # Download (if necessary) and use Hugo extended version. Example: true
-        extended: false
-
-    # Runs Hugo to build the Static Site
-    - name: Run Hugo
-      run: hugo --verbose
-
-    # Deploy the Static Site to Public Repo (GitHub Pages)
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4.3.3
-      with:
-        token:  ${{ secrets.PERSONAL_TOKEN }}
-        repository-name: mywebc/mywebc.github.io
-        branch: master # The branch the action should deploy to.
-        folder: public # The folder the action should deploy.
-        single-commit: true
-        commit-message: "Deploy by source"
+      - name: Check out source
+        uses: actions/checkout@v2
+        
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest" # 可以修改为你使用的 Hugo 版本
+          extended: true # 设置是否需要 extended 版本
+          
+      - name: Build
+        run: hugo --minify
+        
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.DEPLOY_TOKEN }} # 另外还支持 github_token 和 personal_token
+          external_repository: mywebc/mywebc.github.io  # 修改为你的 GitHub Pages 仓库
+          publish_dir: ./public
+          keep_files: false
+          publish_branch: master
+          # 如果使用自定义域名，还需要添加下面一行配置
+          cname: www.chenxiaolani.com
