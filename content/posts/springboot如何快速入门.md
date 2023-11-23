@@ -56,5 +56,6 @@ springboot的注解还有很多，在此就不一一例举了，等到用到什�
 * 完成以上工作直接运行DemoApplication类就好了，然后浏览器直接访问localhost:8080/test，就能看到我们这个接口返回的字符串了;
 ![avatar](/images/posts/springbootInitTest.png)
 
+测试下github actions
 
 
