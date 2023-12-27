@@ -1,11 +1,10 @@
 ## 简介
-* web开发者,擅长前端开发,熟悉掌握React/Vue/Typescript,掌握Java/Node开发,了解Go.
+* web开发者,擅长前端开发,熟悉掌握React/Vue/Typescript,正在学习java/go.
 * 热爱新技术,热爱运动,热爱生活.
 ## 技术优势
 * 熟悉JavaScript,包括其相关原理,熟悉TypeScript;
 * 熟悉 React相关技术栈,了解React核心原理(双缓存,Diff算法,Fiber,Hook等);
 * 熟悉Vue相关技术栈(包括Vue2和Vue3);
-* 掌握Java/Node,掌握SpringBoot相关技术栈开发;
 * 熟悉掌握Webpack相关构建工具;
 * 掌握Http协议,了解一些前端安全防范;
 
